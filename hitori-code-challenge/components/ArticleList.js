@@ -35,7 +35,7 @@ class ArticleList extends React.Component {
         isLoading: false,
       });
     } catch (error) {
-      console.error('_getArticleDatas', error);
+      console.error('getArticleDatas', error);
         this.setState({        
         responseCode : error,        
         isLoading: false,
@@ -50,7 +50,7 @@ class ArticleList extends React.Component {
       <ArticleItem
         iconUri={urlToImage}
         title={title}
-        author={author}
+        author={author == null ? source.name: author} //checking author null will get name of source
         date={new Date(publishedAt)}
         description={description}
       />
