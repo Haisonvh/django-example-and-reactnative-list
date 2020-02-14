@@ -29,50 +29,31 @@ class ArticleItem extends React.Component {
   };
   render() {
     const { iconUri, title, author, date, description } = this.props;
-    //checking if data has imageURL or not. if not using the default image
-    if (iconUri == null) {
-      return (
-        <View style={styles.container}>
-          <ImageBackground
-            style={{
-              alignSelf: 'stretch',
-              width: '100%',
-              height: 150,
-            }}
-            source={require('../assets/news_image.gif')}
-            resizeMode="cover">
-            <View style={styles.overlay}>
-              <Text style={styles.title}>{title}</Text>
-            </View>
-          </ImageBackground>
-          <Text style={styles.description}>{description}</Text>
-          <Text style={styles.credit} numberOfLines={1}>
-            by {author} on {date.toLocaleString()}
-          </Text>
-        </View>
-      );
-    } else {
-      return (
-        <View style={styles.container}>
-          <ImageBackground
-            style={{
-              alignSelf: 'stretch',
-              width: '100%',
-              height: 150,
-            }}
-            source={{ uri: this.props.iconUri }}
-            resizeMode="cover">
-            <View style={styles.overlay}>
-              <Text style={styles.title}>{title}</Text>
-            </View>
-          </ImageBackground>
-          <Text style={styles.description}>{description}</Text>
-          <Text style={styles.credit} numberOfLines={1}>
-            by {author} on {date.toLocaleString()}
-          </Text>
-        </View>
-      );
-    }
+    return (
+      <View style={styles.container}>
+        <ImageBackground
+          style={{
+            alignSelf: 'stretch',
+            width: '100%',
+            height: 150,
+          }}
+          //checking if data has imageURL or not. if not using the default image
+          source={
+            iconUri == null
+              ? require('../assets/news_image.gif')
+              : { uri: this.props.iconUri }
+          }
+          resizeMode="cover">
+          <View style={styles.overlay}>
+            <Text style={styles.title}>{title}</Text>
+          </View>
+        </ImageBackground>
+        <Text style={styles.description}>{description}</Text>
+        <Text style={styles.credit} numberOfLines={1}>
+          by {author} on {date.toLocaleString()}
+        </Text>
+      </View>
+    );
   }
 }
 
