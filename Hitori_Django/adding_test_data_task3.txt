@@ -1,0 +1,9 @@
+>>from polls.models import Publisher,NewsArticle
+>>p = Publisher(ids="9news-com-au",name="9news.com.au")
+>>p.save()
+>>from django.utils import timezone
+>>p.newsarticle_set.create(author="9News Staff",title="Aldi recalls Farmdale milk product",description="<p>Aldi is pulling Farmdale Full Cream t
+hree litre</p>",url="https://www.9news.com.au/national/aldi-customers-milk-recall-bacteria-contamination-food-standards/96dd4df0-5a7e-4945-83f
+6-9a1b7f0b501d",urlToImage="https://imageresizer.static9.net.au/shtqdHl9HV7HxOB4mPWo2Nh0y2k=/0x0/https%3A%2F%2Fprod.static9.net.au%2Ffs%2F6587
+2b9e-0dc7-478c-8d0d-463029600413",publishedAt="2020-02-14T08:37:00Z")
+>>p.save()
